@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Préqualifier"
+  },
+  {
+    "name": "Envoyer CV"
+  },
+  {
+    "name": "Récupérer retour décideur"
+  },  
+  {
+    "name": "Récupérer retour collab"
+  },
+  {
+    "name": "Faire PDC A"
+  },
+  {
+    "name": "Faire PDC B"
+  },
+  {
+    "name": "Faire PDC C"
+  },
+  {
+    "name": "Planifier PRES"
+  },
+  {
+    "name": "Faire PRES"
+  },
+  {
+    "name": "Récupérer resultat PRES"
+  },
+  {
+    "name": "Demander arbitrage"
+  },
+  {
+    "name": "Avertir décideur"
+  },
+  {
+    "name": "Avertir collab"
+  },
+  {
+    "name": "Cloturer echec"
+  },
+  {
+    "name": "Cloturer succès"
+  }
+]

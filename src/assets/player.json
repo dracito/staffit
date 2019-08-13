@@ -1,13 +1,16 @@
 [
   {
+    "id": 1,
     "name": "DOE",
     "firstname": "John"
   },
   {
+    "id": 2,
     "name": "MARTIN",
     "firstname": "Jean"
   },
   {
+    "id": 3,
     "name": "Test Nom",
     "firstname": "Test Prénom"
   }

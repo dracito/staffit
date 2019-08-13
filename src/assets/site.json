@@ -1,26 +1,34 @@
 [
   {
+    "id": 1,
     "name": "Vélizy"
   },
   {
+    "id": 2,
     "name": "Génnevilliers"
   },
   {
+    "id": 3,
     "name": "Elancourt"
   },
   {
+    "id": 4,
     "name": "Massy"
   },
   {
+    "id": 5,
     "name": "Rungis"
   },
   {
+    "id": 6,
     "name": "Cergy"
   },
   {
+    "id": 7,
     "name": "Bagneux"
   },
   {
+    "id": 8,
     "name": "Limours"
   }
 ]

@@ -6,10 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./status-list.component.css']
 })
 export class StatusListComponent {
-
+  title = 'status'
   columnDefs = [
-        {headerName: 'Make', field: 'make' },
-        {headerName: 'Model', field: 'model' },
+        {headerName: 'Make', field: 'make', sortable: true, filter: true },
+        {headerName: 'Model', field: 'model', sortable: true },
         {headerName: 'Price', field: 'price'}
     ];
 

@@ -1,10 +1,11 @@
 <p>
-status-list works!
+Liste des status
 </p>
 <ag-grid-angular 
     style="width: 500px; height: 500px;" 
     class="ag-theme-balham"
     [rowData]="rowData" 
     [columnDefs]="columnDefs"
+    (gridReady)="onGridReady($event)"
     >
 </ag-grid-angular>

@@ -15,6 +15,7 @@ import { CartService } from './cart.service';
 import { CartComponent } from './cart/cart.component';
 import { ShippingComponent } from './shipping/shipping.component';
 import { StatusListComponent } from './status-list/status-list.component';
+import { PersonDetailsComponent } from './person-details/person-details.component';
 
 @NgModule({
   imports: [
@@ -28,6 +29,7 @@ import { StatusListComponent } from './status-list/status-list.component';
       { path: 'cart', component: CartComponent },
       { path: 'shipping', component: ShippingComponent },
       { path: 'status', component: StatusListComponent },
+      { path: 'people/:personId', component: PersonDetailsComponent },
     ])
   ],
   declarations: [
@@ -38,7 +40,8 @@ import { StatusListComponent } from './status-list/status-list.component';
     ProductDetailsComponent,
     CartComponent,
     ShippingComponent,
-    StatusListComponent
+    StatusListComponent,
+    PersonDetailsComponent
   ],
   bootstrap: [ AppComponent ],
   providers: [CartService]

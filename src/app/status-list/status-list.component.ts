@@ -12,12 +12,12 @@ export class StatusListComponent {
   private gridColumnApi;
   private columnDefs = [
         {headerName: 'Status', field: 'status', sortable: true, filter: true },
+        {headerName: 'Piste', field: 'piste', sortable: true, filter: true },
         {headerName: 'Nom', field: 'name', sortable: true, filter: true },
         {headerName: 'Prénom', field: 'firstname', sortable: true, filter: true },
         {headerName: 'Métiers', field: 'metiers', sortable: true, filter: true },
         {headerName: 'Exp.', field: 'xp', sortable: true, filter: true },
         {headerName: 'Dispo le', field: 'dispo', sortable: true, filter: true },
-        {headerName: 'Piste', field: 'piste', sortable: true, filter: true },
         {headerName: 'Action', field: 'action'}
     ];
 

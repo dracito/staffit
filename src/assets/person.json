@@ -10,7 +10,7 @@
     "personTypeId": 1,
     "priceCategoryId": 1,
     "wantedSiteId": [1,2],
-    "unwantedSiteId": [3,4],
+    "unwantedSiteId": [3,4], 
   },
   {
     "id": 2,

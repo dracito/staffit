@@ -15,12 +15,17 @@ export class StatusListComponent implements OnInit {
         {headerName: 'Status', field: 'status', sortable: true, filter: true },
         {headerName: 'Piste', field: 'piste', sortable: true, filter: true },        
         {headerName: 'Priorité', field: 'priority', sortable: true, filter: true },
-        {headerName: 'Nom', field: 'name', sortable: true, filter: true },
-        {headerName: 'Prénom', field: 'firstname', sortable: true, filter: true },
+        {
+          headerName: 'Personne', field: 'name', sortable: true, filter: true,
+          valueGetter: function(params) {
+            return params.data.name + " " + params.data.firstname;
+          }
+        },
         {headerName: 'Métiers', field: 'skills', sortable: true, filter: true },
         {headerName: 'Exp.', field: 'xp', sortable: true, filter: true },
         {headerName: 'Disponible le', field: 'availability', sortable: true, filter: true },
         {headerName: 'Action', field: 'action'}
+        
     ];
   
   private rowData: any;

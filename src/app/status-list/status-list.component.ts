@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-status-list',
   templateUrl: './status-list.component.html',
   styleUrls: ['./status-list.component.css']
 })
-export class StatusListComponent {
+export class StatusListComponent implements OnInit {
   private title = 'status'
 
   private gridApi;
@@ -21,12 +22,21 @@ export class StatusListComponent {
         {headerName: 'Disponible le', field: 'availability', sortable: true, filter: true },
         {headerName: 'Action', field: 'action'}
     ];
+  
+  private rowData: any;
 
-    private rowData = [
-        { status: 'Préqualifier', name: 'DOE', firstname: "John", skills: "C++", xp: "1", availability: "1/08/2019", piste: "Projet A", priority:"P0", action: "" },
-        { status: 'Faire PDC A', name: 'MARTIN', firstname: "Jean", skills: "JEE", xp: "3", availability: "1/09/2019", piste: "Projet B", action: "" },
-        { status: 'Cloturer succès', name: 'DURAND', firstname: "Cécile", skills: "SwARC", xp: "8", availability: "1/10/2019", piste: "Projet A", priority:"P1", action: "" },
-    ];
+  constructor(
+    private http: HttpClient
+  ) {}
+
+  ngOnInit() {
+      this.rowData = this.getStatus();
+  }
+
+  getStatus(){
+    return this.http.get('/assets/status.json');
+  }
+
   autoSizeAll() {
     var allColumnIds = [];
     this.gridColumnApi.getAllColumns().forEach(function(column) {

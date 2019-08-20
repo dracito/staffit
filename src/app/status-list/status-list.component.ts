@@ -19,6 +19,10 @@ export class StatusListComponent implements OnInit {
           headerName: 'Personne', field: 'name', sortable: true, filter: true,
           valueGetter: function(params) {
             return params.data.name + " " + params.data.firstname;
+          },
+          cellRenderer: function(params) {
+            var id = 1; //TODO
+            return '<a href="/people/' + id + '">' + params.value+'</a>'
           }
         },
         {headerName: 'Métiers', field: 'skills', sortable: true, filter: true },

@@ -4,8 +4,9 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-
 import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { firebaseConfig } from '../environments/firebase';
 
 import { AppComponent } from './app.component';
 import { AgGridModule } from 'ag-grid-angular';
@@ -25,6 +26,8 @@ import { PersonDetailsComponent } from './person-details/person-details.componen
     AgGridModule.withComponents([]),
     ReactiveFormsModule,
     HttpClientModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     RouterModule.forRoot([
       { path: '', component: ProductListComponent },
       { path: 'products/:productId', component: ProductDetailsComponent },

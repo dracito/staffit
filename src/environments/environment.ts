@@ -4,15 +4,6 @@
 
 export const environment = {
   production: false,
-  firebaseConfig: {
-    apiKey: "AIzaSyB_3MSI43Ee0W1aWrj0uHs3HsGGJvgLH9o",
-    authDomain: "my-status-6049c.firebaseapp.com",
-    databaseURL: "https://my-status-6049c.firebaseio.com",
-    projectId: "my-status-6049c",
-    storageBucket: "my-status-6049c.appspot.com",
-    messagingSenderId: "222444075447",
-    appId: "1:222444075447:web:14cca5186e3fa8d4"
-  }
 };
 
 /*
@@ -22,11 +13,4 @@ export const environment = {
  * This import should be commented out in production mode because it will have a negative impact
  * on performance if an error is thrown.
  */
-// import 'zone.js/dist/zone-error';  // Included with Angular CLI.
-
-
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/
+import 'zone.js/dist/zone-error';  // Included with Angular CLI.

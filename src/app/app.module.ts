@@ -4,6 +4,8 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireModule } from '@angular/fire';
 
 import { AppComponent } from './app.component';
 import { AgGridModule } from 'ag-grid-angular';
@@ -43,7 +45,7 @@ import { PersonDetailsComponent } from './person-details/person-details.componen
     StatusListComponent,
     PersonDetailsComponent
   ],
-  bootstrap: [ AppComponent ],
+  bootstrap: [AppComponent],
   providers: [CartService]
 })
 export class AppModule { }

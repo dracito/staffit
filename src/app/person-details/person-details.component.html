@@ -5,3 +5,9 @@
   <h4>{{ person.availability }}</h4>
   <p>{{ person.cc }}</p>
 </div>
+
+<ul>
+  <li class="text">
+    {{ (item | async)?.name }}
+  </li>
+</ul>

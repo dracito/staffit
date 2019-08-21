@@ -8,10 +8,10 @@
 
 
 - Definition:
-  - Status:
+  - StatusType:
     - Name : Example: "A préqualifier", "CV à envoyer", "Récupérer retour décideur", "Faire PDC A"...
   
-  - Action:
+  - Status/Action:
     - Person for the Mission
     - Projet/Client of the Mission
     - Player = Actor

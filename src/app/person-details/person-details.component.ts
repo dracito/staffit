@@ -10,21 +10,24 @@ export interface Item { name: string; }
   templateUrl: './person-details.component.html',
   styleUrls: ['./person-details.component.css']
 })
-export class PersonDetailsComponent implements OnInit {
-  private db: AngularFirestore;
+export class PersonDetailsComponent /*implements OnInit*/ {
   private itemDoc: AngularFirestoreDocument<Item>;
-  private item: Observable<Item>;
+  item: Observable<Item>;
 
-  constructor(
-    private route: ActivatedRoute,
-    db: AngularFirestore
-  ){
-    this.db = db;    
+  private db: AngularFirestore;
+  constructor(private route: ActivatedRoute, private afs: AngularFirestore) {
+    this.itemDoc = afs.doc<Item>('people/1');
+    this.item = this.itemDoc.valueChanges();
   }
-
+  
+  update(item: Item) {
+    this.itemDoc.update(item);
+  }
+/*
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.item = this.db.doc<Item>('people/'+params.get('personId')).valueChanges();
     });
   }
+  */
 }

@@ -12,12 +12,12 @@ export interface Item { name: string; }
 })
 export class PersonDetailsComponent /*implements OnInit*/ {
   private itemDoc: AngularFirestoreDocument<Item>;
-  item: Observable<Item>;
+  item$: Observable<Item>;
 
   private db: AngularFirestore;
   constructor(private route: ActivatedRoute, private afs: AngularFirestore) {
     this.itemDoc = afs.doc<Item>('people/1');
-    this.item = this.itemDoc.valueChanges();
+    this.item$ = this.itemDoc.valueChanges();
   }
   
   update(item: Item) {

@@ -6,8 +6,34 @@
   <p>{{ person.cc }}</p>
 </div>
 
-<ul>
-  <li class="text">
-    {{ (item | async)?.name }}
-  </li>
-</ul>
+<div *ngIf="item$ | async as item; else loading">
+  <h3>{{ item.name }}
+      {{ item.firstname }}</h3>
+  <ul>
+    <li class="text">
+      Disponibilité: {{ item.availability.toDate() | date : 'shortDate' }}
+    </li>
+    <li class="text">
+      Direction: {{ item.cc }}  
+    </li>
+    <li class="text">
+      Type: {{ item.personType }}    
+    </li>
+    <li class="text">
+      Category: {{ item.priceCategory }}    
+    </li>
+    <li class="text">
+      Compétences: {{ item.skills }}    
+    </li>
+    <li class="text">
+      Site OK: {{ item.wantedSites }}    
+    </li>
+    <li class="text">
+      Site KO: {{ item.unwantedSites }}    
+    </li>
+  </ul>
+</div>
+
+<ng-template #loading>
+  Loading stuff...
+</ng-template>

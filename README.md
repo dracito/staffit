@@ -5,8 +5,6 @@
   - Action : List + CRUD
   - Person : List + CRUD
 
-
-
 - Definition:
   - StatusType:
     - Name : Example: "A préqualifier", "CV à envoyer", "Récupérer retour décideur", "Faire PDC A"...
@@ -50,8 +48,3 @@
   
   - Priority
     - Name: P0, P1, P2, P3
-
-
-  
-  
-

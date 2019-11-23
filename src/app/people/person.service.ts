@@ -26,11 +26,25 @@ export class PersonService{
     return this.peopleRefs.doc(key).delete();
   }
 
-  getPerson(key: string): Promise<Person>{
+  getPerson(key: string): Person{
+    var person;
+    const personDoc = this.peopleRefs.doc<Person>(key);
+    personDoc.valueChanges().subscribe((personDoc: any) => {
+        person = personDoc;
+    });
+    return person;
+  
+  /*
     const document: AngularFirestoreDocument<Person> = this.peopleRefs.doc<Person>(key);    
-    return document.valueChanges().toPromise();
-    
-    //this.peopleRefs.doc<Person>(key).ref.get().then((doc) => {return doc.data;})
+    const document$: Observable<Person> = document.valueChanges().toPromise<Person>();
+    return document$;
+  */
+
+    /*
+    var test;
+    this.peopleRefs.doc<Person>(key).ref.get().then((doc) => {test = doc.data;})
+    return test;
+    */
     /*
     this.peopleRefs.doc(key).ref.get().then((doc) => {
       if(doc.exists){
@@ -38,7 +52,7 @@ export class PersonService{
       }else{
         console.log("No such Person data with key"+key+"!");
       }
-    }
+    });
     */
   }
 

@@ -11,14 +11,14 @@ import { Person } from '../people/person';
 export class PersonDetailsComponent implements OnInit {
   
   @Input() person: Person;
+  personId;
 
   constructor(private route: ActivatedRoute, private personService: PersonService){ }
 
   ngOnInit(){
-    /*
     this.route.paramMap.subscribe(params => {
       this.person = this.personService.getPerson(params.get('personId'));
+      this.personId = params.get('personId');
     });
-    */
   }
 }

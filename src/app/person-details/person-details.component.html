@@ -1,5 +1,7 @@
 <h2>Person Details</h2>
-
+<div *ngIf="person" >{{person | json}}</div>
+{{ personId }}
+{{ person | async }}
 <div *ngIf="person">
   <h3>{{ person.name }} {{ person.firstname }}</h3>
   <h4>{{ person.availability }}</h4>

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { Observable } from 'rxjs/Observable';
 import { Person } from './person';
 
 @Injectable({
@@ -7,9 +8,9 @@ import { Person } from './person';
 })
 export class PersonService{
   private dbPath = '/people';
-  peopleRefs: AngularFirestoreCollection<Person> = null;
+  private peopleRefs: AngularFirestoreCollection<Person> = null;
 
-  constructor(private db:AngularFirestore){
+  constructor(private db: AngularFirestore){
     this.peopleRefs = db.collection(this.dbPath);
   }
 
@@ -23,6 +24,22 @@ export class PersonService{
 
   deletePerson(key: string): Promise<void>{
     return this.peopleRefs.doc(key).delete();
+  }
+
+  getPerson(key: string): Promise<Person>{
+    const document: AngularFirestoreDocument<Person> = this.peopleRefs.doc<Person>(key);    
+    return document.valueChanges().toPromise();
+    
+    //this.peopleRefs.doc<Person>(key).ref.get().then((doc) => {return doc.data;})
+    /*
+    this.peopleRefs.doc(key).ref.get().then((doc) => {
+      if(doc.exists){
+        return doc.data;
+      }else{
+        console.log("No such Person data with key"+key+"!");
+      }
+    }
+    */
   }
 
   getPeopleList(): AngularFirestoreCollection<Person>{

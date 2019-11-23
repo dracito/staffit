@@ -16,18 +16,41 @@ export class PersonDetailsComponent /*implements OnInit*/ {
 
   private db: AngularFirestore;
   constructor(private route: ActivatedRoute, private afs: AngularFirestore) {
-    this.itemDoc = afs.doc<Item>('people/1');
-    this.item$ = this.itemDoc.valueChanges();
+    /*
+    this.route.paramMap.subscribe(params => {
+      this.itemDoc = afs.doc<Item>('people/1'+params.get('personId'));
+      this.item$ = this.itemDoc.valueChanges();      
+    });
+    */
   }
   
   update(item: Item) {
     this.itemDoc.update(item);
   }
-/*
+
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
-      this.item = this.db.doc<Item>('people/'+params.get('personId')).valueChanges();
+      this.item$ = this.db.doc<Item>('people/'+params.get('personId')).valueChanges();
     });
   }
-  */
+
+}
+
+export class Person{
+  key:string;
+  name:string;
+  firstname:string;
+  availability:Date;
+  xp:number;
+  ccId:string;
+  skills:Array<string>;
+  personTypeId:string;
+  priceCategoryId:string;
+  wantedSiteId:Array<string>;
+  unwantedSiteId:Array<string>;
+}
+
+export class PersonService{
+  private dbPath = '/people';
+  
 }

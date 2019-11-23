@@ -29,7 +29,8 @@ import { PersonDetailsComponent } from './person-details/person-details.componen
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     RouterModule.forRoot([
-      { path: '', component: ProductListComponent },
+      { path: '', component: PersonDetailsComponent },
+      { path: 'products', component: ProductListComponent },
       { path: 'products/:productId', component: ProductDetailsComponent },
       { path: 'cart', component: CartComponent },
       { path: 'shipping', component: ShippingComponent },

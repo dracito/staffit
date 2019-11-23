@@ -1,16 +1,26 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
-
-export interface Item { name: string; }
+import { Component, OnInit, Input } from '@angular/core';
+import { PersonService } from '../people/person.service';
+import { Person } from '../people/person';
 
 @Component({
   selector: 'app-person-details',
   templateUrl: './person-details.component.html',
   styleUrls: ['./person-details.component.css']
 })
-export class PersonDetailsComponent /*implements OnInit*/ {
+export class PersonDetailsComponent implements OnInit {
+  
+  @Input() person: Person;
+
+  constructor(private personService: PersonService){ }
+
+  ngOnInit(){ }
+  //<div *ngIf="item$ | async as item; else loading"> pour html
+}
+/*
+
+export interface Item { name: string; }
+
+
   private itemDoc: AngularFirestoreDocument<Item>;
   item$: Observable<Item>;
 
@@ -22,6 +32,7 @@ export class PersonDetailsComponent /*implements OnInit*/ {
       this.item$ = this.itemDoc.valueChanges();      
     });
     */
+/*
   }
   
   update(item: Item) {
@@ -35,46 +46,4 @@ export class PersonDetailsComponent /*implements OnInit*/ {
   }
 
 }
-
-export class Person{
-  key:string;
-  name:string;
-  firstname:string;
-  availability:Date;
-  xp:number;
-  ccId:string;
-  skills:Array<string>;
-  personTypeId:string;
-  priceCategoryId:string;
-  wantedSiteId:Array<string>;
-  unwantedSiteId:Array<string>;
-}
-
-export class PersonService{
-  private dbPath = '/people';
-  peopleRefs: AngularFirestoreCollection<Person> = null;
-
-  constructor(private db:AngularFirestore){
-    this.peopleRefs = db.collection(this.dbPath);
-  }
-
-  createPerson(person: Person): void{
-    this.peopleRefs.add({...person});
-  }
-
-  updatePerson(key: string, value: any): Promise<void>{
-    return this.peopleRefs.doc(key).update(value);
-  }
-
-  deletePerson(key: string): Promise<void>{
-    return this.peopleRefs.doc(key).delete();
-  }
-
-  getPerson(key: string): AngularFirestoreCollection<Person>{
-    return this.peopleRefs.doc(key).get();
-  }
-
-  getPeopleList(): AngularFirestoreCollection<Person>{
-    return this.peopleRefs;
-  }
-}
+*/

@@ -5,7 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/firestore';
 import { firebaseConfig } from '../environments/firebase';
 
 import { AppComponent } from './app.component';
@@ -20,23 +20,25 @@ import { ShippingComponent } from './shipping/shipping.component';
 import { StatusListComponent } from './status-list/status-list.component';
 import { PersonDetailsComponent } from './person-details/person-details.component';
 
-@NgModule({
-  imports: [
-    BrowserModule,
-    AgGridModule.withComponents([]),
-    ReactiveFormsModule,
-    HttpClientModule,
-    AngularFireModule.initializeApp(firebaseConfig),
-    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
-    RouterModule.forRoot([
-      { path: '', component: PersonDetailsComponent },
+const routes: Routes = [
+   { path: '', component: StatusListComponent },
       { path: 'products', component: ProductListComponent },
       { path: 'products/:productId', component: ProductDetailsComponent },
       { path: 'cart', component: CartComponent },
       { path: 'shipping', component: ShippingComponent },
       { path: 'status', component: StatusListComponent },
-      { path: 'people/:personId', component: PersonDetailsComponent },
-    ])
+      { path: 'people/:personId', component: PersonDetailsComponent }
+];
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    AgGridModule.withComponents([]),    
+    ReactiveFormsModule,
+    HttpClientModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFirestoreModule,
+    RouterModule.forRoot(routes)
   ],
   declarations: [
     AppComponent,
@@ -50,6 +52,6 @@ import { PersonDetailsComponent } from './person-details/person-details.componen
     PersonDetailsComponent
   ],
   bootstrap: [AppComponent],
-  providers: [CartService]
+  providers: [{ provide: FirestoreSettingsToken, useValue: {} }, CartService]
 })
 export class AppModule { }

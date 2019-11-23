@@ -4,9 +4,10 @@
   <h3>{{ person.name }} {{ person.firstname }}</h3>
   <h4>{{ person.availability }}</h4>
   <p>{{ person.cc }}</p>
+  <p>{{ person.key }}</p>
 </div>
 
-<div *ngIf="item$ | async as item; else loading">
+<div *ngIf="item">
   <h3>{{ item.name }}
       {{ item.firstname }}</h3>
   <ul>

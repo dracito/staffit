@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
 export interface Item { name: string; }
@@ -52,5 +52,29 @@ export class Person{
 
 export class PersonService{
   private dbPath = '/people';
-  
+  peopleRefs: AngularFirestoreCollection<Person> = null;
+
+  constructor(private db:AngularFirestore){
+    this.peopleRefs = db.collection(this.dbPath);
+  }
+
+  createPerson(person: Person): void{
+    this.peopleRefs.add({...person});
+  }
+
+  updatePerson(key: string, value: any): Promise<void>{
+    return this.peopleRefs.doc(key).update(value);
+  }
+
+  deletePerson(key: string): Promise<void>{
+    return this.peopleRefs.doc(key).delete();
+  }
+
+  getPerson(key: string): AngularFirestoreCollection<Person>{
+    return this.peopleRefs.doc(key).get();
+  }
+
+  getPeopleList(): AngularFirestoreCollection<Person>{
+    return this.peopleRefs;
+  }
 }

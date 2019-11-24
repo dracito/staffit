@@ -1,38 +1,35 @@
 <h2>Person Details</h2>
-<div *ngIf="person" >{{person | json}}</div>
-{{ personId }}
-{{ person | async }}
+<!--<div *ngIf="person" >{{person | json}}</div>
+{{ personId }}-->
 <div *ngIf="person">
-  <h3>{{ person.name }} {{ person.firstname }}</h3>
-  <h4>{{ person.availability }}</h4>
-  <p>{{ person.cc }}</p>
-  <p>{{ person.key }}</p>
-</div>
-
-<div *ngIf="item">
-  <h3>{{ item.name }}
-      {{ item.firstname }}</h3>
+  <h3>
+      {{ (person | async)?.name }}
+      {{ (person | async)?.firstname }}
+  </h3>
   <ul>
     <li class="text">
-      Disponibilité: {{ item.availability.toDate() | date : 'shortDate' }}
+      Compétences: {{ (person | async)?.skills }}
     </li>
     <li class="text">
-      Direction: {{ item.cc }}  
+      Expérience (en années): {{ (person | async)?.xp }}
     </li>
     <li class="text">
-      Type: {{ item.personType }}    
+      Disponibilité: {{ (person | async)?.availability.toDate() | date : 'dd/MM/yy' }}
     </li>
     <li class="text">
-      Category: {{ item.priceCategory }}    
+      Direction: {{ (person | async)?.cc }}
     </li>
     <li class="text">
-      Compétences: {{ item.skills }}    
+      Type: {{ (person | async)?.personType }}
     </li>
     <li class="text">
-      Site OK: {{ item.wantedSites }}    
+      Category: {{ (person | async)?.priceCategory }}
     </li>
     <li class="text">
-      Site KO: {{ item.unwantedSites }}    
+      Site OK: {{ (person | async)?.wantedSites }}
+    </li>
+    <li class="text">
+      Site KO: {{ (person | async)?.unwantedSites }}
     </li>
   </ul>
 </div>

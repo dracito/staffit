@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument,
+ DocumentChangeAction } from '@angular/fire/firestore';
 import { Observable } from 'rxjs/Observable';
+import { map } from 'rxjs/operators';
 import { Person } from './person';
 
 @Injectable({
@@ -27,12 +29,34 @@ export class PersonService{
   }
 
   getPerson(key: string): Person{
-    var person;
     const personDoc = this.peopleRefs.doc<Person>(key);
     return personDoc.valueChanges();
   }
 
-  getPeopleList(): AngularFirestoreCollection<Person>{
-    return this.peopleRefs;
+  getPeopleList() {
+    return this.peopleRefs.snapshotChanges()
+      .pipe(
+        map((actions: DocumentChangeAction<Person>[]) => {
+        return actions.map((a: DocumentChangeAction<Person>) => {
+          const data: Object = a.payload.doc.data() as Person;
+          const key = a.payload.doc.id;
+          return { key, ...data };
+        });
+      }),
+    );
   }
+
+  colWithIds$<T>(ref: CollectionPredicate<T>, queryFn?): Observable<any[]> {
+  return this.col(ref, queryFn)
+    .snapshotChanges()
+    .pipe(
+      map((actions: DocumentChangeAction<T>[]) => {
+        return actions.map((a: DocumentChangeAction<T>) => {
+          const data: Object = a.payload.doc.data() as T;
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        });
+      }),
+    );
+}
 }

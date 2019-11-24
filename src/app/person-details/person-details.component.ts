@@ -11,8 +11,7 @@ import { Person } from '../people/person';
 export class PersonDetailsComponent implements OnInit {
   
   @Input() person: Person;
-  personId;
-  people;
+  private personId: string;
 
   constructor(private route: ActivatedRoute, private personService: PersonService){ }
 
@@ -21,6 +20,5 @@ export class PersonDetailsComponent implements OnInit {
       this.personId = params.get('personId');
       this.person = this.personService.getPerson(this.personId);
     });
-    this.people = this.personService.getPeopleList();
   }
 }

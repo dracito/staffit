@@ -18,6 +18,7 @@ import { CartService } from './cart.service';
 import { CartComponent } from './cart/cart.component';
 import { ShippingComponent } from './shipping/shipping.component';
 import { StatusListComponent } from './status-list/status-list.component';
+import { PeopleListComponent } from './people/people-list/people-list.component';
 import { PersonDetailsComponent } from './person-details/person-details.component';
 
 const routes: Routes = [
@@ -27,6 +28,7 @@ const routes: Routes = [
       { path: 'cart', component: CartComponent },
       { path: 'shipping', component: ShippingComponent },
       { path: 'status', component: StatusListComponent },
+      { path: 'people', component: PeopleListComponent },
       { path: 'people/:personId', component: PersonDetailsComponent }
 ];
 
@@ -49,6 +51,7 @@ const routes: Routes = [
     CartComponent,
     ShippingComponent,
     StatusListComponent,
+    PeopleListComponent,
     PersonDetailsComponent
   ],
   bootstrap: [AppComponent],

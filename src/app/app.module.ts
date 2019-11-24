@@ -19,7 +19,7 @@ import { CartComponent } from './cart/cart.component';
 import { ShippingComponent } from './shipping/shipping.component';
 import { StatusListComponent } from './status-list/status-list.component';
 import { PeopleListComponent } from './people/people-list/people-list.component';
-import { PersonDetailsComponent } from './person-details/person-details.component';
+import { PersonDetailsComponent } from './people/person-details/person-details.component';
 
 const routes: Routes = [
    { path: '', component: StatusListComponent },

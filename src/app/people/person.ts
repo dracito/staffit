@@ -1,5 +1,5 @@
 export class Person{
-  key:string;
+  id:string;
   name:string;
   firstname:string;
   availability:Date;

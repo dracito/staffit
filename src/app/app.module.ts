@@ -14,14 +14,12 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductAlertsComponent } from './product-alerts/product-alerts.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
-//import { FirestoreService } from './services/firestore.service';
 import { CartService } from './cart.service';
 import { CartComponent } from './cart/cart.component';
 import { ShippingComponent } from './shipping/shipping.component';
 import { StatusListComponent } from './status-list/status-list.component';
 import { PeopleListComponent } from './people/people-list/people-list.component';
 import { PersonDetailsComponent } from './people/person-details/person-details.component';
-import { Person } from '/people/person';
 
 const routes: Routes = [
    { path: '', component: StatusListComponent },
@@ -54,10 +52,9 @@ const routes: Routes = [
     ShippingComponent,
     StatusListComponent,
     PeopleListComponent,
-    PersonDetailsComponent,
-    Person
+    PersonDetailsComponent
   ],
   bootstrap: [AppComponent],
-  providers: [{ provide: FirestoreSettingsToken, useValue: {} }/*, FirestoreService*/, CartService]
+  providers: [{ provide: FirestoreSettingsToken, useValue: {} }, CartService]
 })
 export class AppModule { }

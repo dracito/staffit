@@ -10,34 +10,32 @@ import { Person } from './person';
 })
 export class PersonService{
   private peopleCollection: AngularFirestoreCollection<Person>;
-  private people: Observable<an[]>;
+  private people: Observable<any[]>;
 
   constructor(private db: AngularFirestore){
     this.peopleCollection = db.collection<Person>('people');
-    this.people = this.peopleCollection.snapshotChanges();
+    this.people = this.getPeopleList();
   }
 
   createPerson(person: Person): void{
-    this.peopleRefs.add({...person});
+    this.peopleCollection.add({...person});
   }
 
   updatePerson(id: string, value: any): Promise<void>{
-    this.people
-    this.itemDoc.update(item);
-    return this.peopleRefs.doc(id).update(value);
+    return this.peopleCollection.doc(id).update(value);
   }
 
   deletePerson(id: string): Promise<void>{
-    return this.peopleRefs.doc(id).delete();
+    return this.peopleCollection.doc(id).delete();
   }
 
   getPerson(id: string): Person{
-    const personDoc = this.peopleRefs.doc<Person>(id);
+    const personDoc = this.peopleCollection.doc<Person>(id);
     return personDoc.valueChanges();
   }
 
   getPeopleList() {
-    return this.peopleRefs.snapshotChanges()
+    return this.peopleCollection.snapshotChanges()
       .pipe(
         map((actions: DocumentChangeAction<Person>[]) => {
         return actions.map((a: DocumentChangeAction<Person>) => {

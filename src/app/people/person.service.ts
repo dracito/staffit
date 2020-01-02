@@ -1,21 +1,20 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument,
+import { AngularFirestore, AngularFirestoreCollection,
  DocumentChangeAction } from '@angular/fire/firestore';
 import { Observable } from 'rxjs/Observable';
 import { map } from 'rxjs/operators';
-import { FirestoreService } from '../services/firestore.service';
 import { Person } from './person';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PersonService{
-  private dbPath = '/people';
-  private peopleRefs: AngularFirestoreCollection<Person> = null;
+  private peopleCollection: AngularFirestoreCollection<Person>;
+  private people: Observable<an[]>;
 
-  constructor(private db: FirestoreService /*private db: AngularFirestore*/){
-    this.peopleRefs = db.col$(this.dbPath);
-    //this.peopleRefs = db.collection(this.dbPath);
+  constructor(private db: AngularFirestore){
+    this.peopleCollection = db.collection<Person>('people');
+    this.people = this.peopleCollection.snapshotChanges();
   }
 
   createPerson(person: Person): void{
@@ -23,6 +22,8 @@ export class PersonService{
   }
 
   updatePerson(id: string, value: any): Promise<void>{
+    this.people
+    this.itemDoc.update(item);
     return this.peopleRefs.doc(id).update(value);
   }
 

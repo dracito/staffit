@@ -29,17 +29,17 @@ export class PersonService{
     return this.peopleCollection.doc(id).delete();
   }
 
-  getPerson(id: string): Person{
+  getPerson(id: string){
     const personDoc = this.peopleCollection.doc<Person>(id);
     return personDoc.valueChanges();
   }
 
-  getPeopleList() {
+  getPeopleList(){
     return this.peopleCollection.snapshotChanges()
       .pipe(
         map(actions => {
         return actions.map( a => {
-          const data: Object = a.payload.doc.data() as Person;
+          const data: Object = a.payload.doc.data();
           const id = a.payload.doc.id;
           return { id, ...data };
         });

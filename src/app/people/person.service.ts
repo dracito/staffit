@@ -37,7 +37,7 @@ export class PersonService{
   getPeopleList() {
     return this.peopleCollection.snapshotChanges()
       .pipe(
-        map((actions => {
+        map(actions => {
         return actions.map( a => {
           const data: Object = a.payload.doc.data() as Person;
           const id = a.payload.doc.id;

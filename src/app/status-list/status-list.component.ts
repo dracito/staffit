@@ -35,15 +35,15 @@ export class StatusListComponent implements OnInit {
   
   private rowData: any;
 
-  constructor(
-    private http: HttpClient
-  ) {}
+  constructor(private http: HttpClient)
+  {   
+  }
 
   ngOnInit() {
       this.rowData = this.getStatus();
       
-      var fdc = new FirestoreDataCreation(this.http);//TO REMOVE
-      //fdc.restorePeople();//TO REMOVE
+      var fdc = new FirestoreDataCreation(this.http, this.db);//TO REMOVE
+      fdc.importPeople();//TO REMOVE
   }
 
   getStatus(){

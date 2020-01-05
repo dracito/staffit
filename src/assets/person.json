@@ -10,7 +10,7 @@
     "personTypeId": 1,
     "priceCategoryId": 1,
     "wantedSiteId": [1,2],
-    "unwantedSiteId": [3,4],
+    "unwantedSiteId": [3,4]
   },
   {
     "id": 2,
@@ -23,7 +23,7 @@
     "personTypeId": 2,
     "priceCategoryId": 2,
     "wantedSiteId": [3],
-    "unwantedSiteId": [1],
+    "unwantedSiteId": [1]
   },
   {
     "id": 3,
@@ -36,6 +36,6 @@
     "personTypeId": 3,
     "priceCategoryId": 3,
     "wantedSiteId": [1],
-    "unwantedSiteId": [],
+    "unwantedSiteId": []
   }
 ]

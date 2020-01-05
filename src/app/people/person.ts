@@ -4,10 +4,10 @@ export class Person{
   firstname:string;
   availability:Date;
   xp:number;
-  ccId:string;
+  cc:string;
   skills:Array<string>;
-  personTypeId:string;
-  priceCategoryId:string;
-  wantedSiteId:Array<string>;
-  unwantedSiteId:Array<string>;
+  personType:string;
+  priceCategory:string;
+  wantedSites:Array<string>;
+  unwantedSites:Array<string>;
 }

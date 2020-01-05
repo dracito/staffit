@@ -1,17 +1,21 @@
+import { Injectable } from '@angular/core';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-  
+
+
+@Injectable({
+  providedIn: 'root'
+})
 export class FirestoreDataCreation{
 
-  private _jsonURL = 'assets/person.json';
-
-  constructor(private http: HttpClient){
-    this.getJSON().subscribe(data => {
-    console.log(data);
-    });
+  constructor(private http: HttpClient, private db: AngularFirestore){
   }
 
-  public getJSON(): Observable<any> {
-    return this.http.get(this._jsonURL);
+  //Create people
+  public importPeople(){
+    this.http.get('assets/people.json').subscribe(data => {
+      console.log(data);    
+    });
   }
 }

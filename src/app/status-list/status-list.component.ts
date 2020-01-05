@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { FirestoreDataCreation } from '../services/firestore-data-creation.service';
+import { FirestoreDataCreationService } from '../services/firestore-data-creation.service';
 
 @Component({
   selector: 'app-status-list',
@@ -35,15 +35,13 @@ export class StatusListComponent implements OnInit {
   
   private rowData: any;
 
-  constructor(private http: HttpClient)
+  constructor(private http: HttpClient, private service: FirestoreDataCreationService)
   {   
   }
 
   ngOnInit() {
       this.rowData = this.getStatus();
-      
-      var fdc = new FirestoreDataCreation(this.http, this.db);//TO REMOVE
-      fdc.importPeople();//TO REMOVE
+      this.service.importPeople();
   }
 
   getStatus(){

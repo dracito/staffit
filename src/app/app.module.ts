@@ -20,16 +20,17 @@ import { ShippingComponent } from './shipping/shipping.component';
 import { StatusListComponent } from './status-list/status-list.component';
 import { PeopleListComponent } from './people/people-list/people-list.component';
 import { PersonDetailsComponent } from './people/person-details/person-details.component';
+import { FirestoreDataCreationService } from './services/firestore-data-creation.service';
 
 const routes: Routes = [
-   { path: '', component: StatusListComponent },
-      { path: 'products', component: ProductListComponent },
-      { path: 'products/:productId', component: ProductDetailsComponent },
-      { path: 'cart', component: CartComponent },
-      { path: 'shipping', component: ShippingComponent },
-      { path: 'status', component: StatusListComponent },
-      { path: 'people', component: PeopleListComponent },
-      { path: 'people/:personId', component: PersonDetailsComponent }
+  { path: '', component: StatusListComponent },
+  { path: 'products', component: ProductListComponent },
+  { path: 'products/:productId', component: ProductDetailsComponent },
+  { path: 'cart', component: CartComponent },
+  { path: 'shipping', component: ShippingComponent },
+  { path: 'status', component: StatusListComponent },
+  { path: 'people', component: PeopleListComponent },
+  { path: 'people/:personId', component: PersonDetailsComponent }
 ];
 
 @NgModule({
@@ -55,6 +56,6 @@ const routes: Routes = [
     PersonDetailsComponent
   ],
   bootstrap: [AppComponent],
-  providers: [{ provide: FirestoreSettingsToken, useValue: {} }, CartService]
+  providers: [{ provide: FirestoreSettingsToken, useValue: {} }, CartService, FirestoreDataCreationService]
 })
 export class AppModule { }

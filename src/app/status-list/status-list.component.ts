@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { FirestoreDataCreation } from '../services/firestore-data-creation.service';
 
 @Component({
   selector: 'app-status-list',
@@ -40,6 +41,9 @@ export class StatusListComponent implements OnInit {
 
   ngOnInit() {
       this.rowData = this.getStatus();
+      
+      var fdc = new FirestoreDataCreation(this.http);//TO REMOVE
+      //fdc.restorePeople();//TO REMOVE
   }
 
   getStatus(){

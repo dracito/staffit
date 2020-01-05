@@ -1,0 +1,42 @@
+{
+  "people": [
+  {
+    "id": 1,
+    "name": "DOE",
+    "firstname": "John",
+    "xp": 1,
+    "ccId": 1,
+    "availability": "01/08/2019",
+    "skills": [1,2],
+    "personTypeId": 1,
+    "priceCategoryId": 1,
+    "wantedSiteId": [1,2],
+    "unwantedSiteId": [3,4],
+  },
+  {
+    "id": 2,
+    "name": "MARTIN",
+    "firstname": "Jean",
+    "xp": 3,
+    "ccId": 2,
+    "availability": "01/09/2019",
+    "skills": [10],
+    "personTypeId": 2,
+    "priceCategoryId": 2,
+    "wantedSiteId": [3],
+    "unwantedSiteId": [1],
+  },
+  {
+    "id": 3,
+    "name": "DURAND",
+    "firstname": "Cécile",
+    "xp": 8,
+    "ccId": 3,
+    "availability": "01/10/2019",
+    "skills": [13,10],
+    "personTypeId": 3,
+    "priceCategoryId": 3,
+    "wantedSiteId": [1],
+    "unwantedSiteId": [],
+  }
+]

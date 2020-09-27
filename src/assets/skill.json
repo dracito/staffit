@@ -1,0 +1,54 @@
+[
+  {
+    "id": 1,
+    "name": "C++"
+  },
+  {
+    "id": 2,
+    "name": "C"
+  },
+  {
+    "id": 3,
+    "name": "ADA"
+  },
+  {
+    "id": 4,
+    "name": "C#"
+  },
+  {
+    "id": 5,
+    "name": "DevOPS"
+  },
+  {
+    "id": 6,
+    "name": "IVQ"
+  },
+  {
+    "id": 7,
+    "name": "IVL"
+  },
+  {
+    "id": 8,
+    "name": "RIVQ"
+  },
+  {
+    "id": 9,
+    "name": "JAVA Core"
+  },
+  {
+    "id": 10,
+    "name": "JEE"
+  },
+  {
+    "id": 11,
+    "name": "Angular"
+  },
+  {
+    "id": 12,
+    "name": "Scrum Master"
+  },
+  {
+    "id": 13,
+    "name": "SwARC"
+  }
+]

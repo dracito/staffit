@@ -24,7 +24,7 @@ export class FirestoreDataCreationService{
         // Add a new document in collection "cities"
         this.peopleCollection
         .add({
-          .value
+          value
         })
         .then(function() {
           console.log("Document successfully written!");

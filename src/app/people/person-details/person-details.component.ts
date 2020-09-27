@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PersonService } from '../person.service';
 import { Person } from '../person';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-person-details',
@@ -10,7 +11,7 @@ import { Person } from '../person';
 })
 export class PersonDetailsComponent implements OnInit {
   
-  @Input() person: Person;
+  @Input() person: Observable<Person>;
   private personId: string;
 
   constructor(private route: ActivatedRoute, private personService: PersonService){ }

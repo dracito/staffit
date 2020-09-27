@@ -1,35 +1,15 @@
-<<<<<<< HEAD
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-
-@NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }
-=======
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/firestore';
+import { AngularFirestoreModule, SETTINGS } from '@angular/fire/firestore';
 import { firebaseConfig } from '../environments/firebase';
 
 import { AppComponent } from './app.component';
-import { AgGridModule } from 'ag-grid-angular';
+import { Grid } from 'ag-grid-community';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductAlertsComponent } from './product-alerts/product-alerts.component';
@@ -56,7 +36,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     BrowserModule,
-    AgGridModule.withComponents([]),    
+    Grid,    
     ReactiveFormsModule,
     HttpClientModule,
     AngularFireModule.initializeApp(firebaseConfig),
@@ -76,7 +56,6 @@ const routes: Routes = [
     PersonDetailsComponent
   ],
   bootstrap: [AppComponent],
-  providers: [{ provide: FirestoreSettingsToken, useValue: {} }, CartService, FirestoreDataCreationService]
+  providers: [{ provide: SETTINGS, useValue: {} }, CartService, FirestoreDataCreationService]
 })
 export class AppModule { }
->>>>>>> c89c6a70fd9d070300a8bf65a9092b09db97a604

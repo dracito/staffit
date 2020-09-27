@@ -45,8 +45,9 @@ export class PeopleListComponent implements OnInit {
     this.personService.getPeopleList().subscribe(data => {
       this.people = data.map(e => {
         return {
-          key: e.payload.doc.id,
+          /*key: e.payload.doc.id,
           ...e.payload.doc.data()
+          */
         } as Person;
       })
     });

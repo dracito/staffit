@@ -12,10 +12,10 @@ import { Person } from '../person';
 export class PeopleListComponent implements OnInit {
 
   private people;
-  private rowData;
+  rowData;
   private gridApi;
   private gridColumnApi;
-  private columnDefs = [
+  columnDefs = [
         {headerName: 'Personne', field: 'name', sortable: true, filter: true,
           valueGetter: function(params) {
             return params.data.name + " " + params.data.firstname + " " + params.data.$key;

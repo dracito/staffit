@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 /* Global Styles */
+@import "../node_modules/ag-grid-community/dist/styles/ag-grid.css";
+@import "../node_modules/ag-grid-community/dist/styles/ag-theme-alpine.css";
 
 * {
   font-family: 'Roboto', Arial, sans-serif;
@@ -137,7 +139,3 @@ app-top-bar h1 {
   border-radius: 2px;
   background-color: #EEEEEE;
 }
-
-
-@import "~ag-grid-community/dist/styles/ag-grid.css";
-@import "~ag-grid-community/dist/styles/ag-theme-balham.css";

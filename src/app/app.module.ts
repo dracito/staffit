@@ -9,7 +9,7 @@ import { AngularFirestoreModule, SETTINGS } from '@angular/fire/firestore';
 import { firebaseConfig } from '../environments/firebase';
 
 import { AppComponent } from './app.component';
-import { Grid } from 'ag-grid-community';
+import { AgGridModule } from 'ag-grid-angular';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductAlertsComponent } from './product-alerts/product-alerts.component';
@@ -36,12 +36,12 @@ const routes: Routes = [
 @NgModule({
   imports: [
     BrowserModule,
-    Grid,    
+    AgGridModule.withComponents([]),    
     ReactiveFormsModule,
     HttpClientModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })
   ],
   declarations: [
     AppComponent,

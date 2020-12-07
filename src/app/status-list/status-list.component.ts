@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { FirestoreDataCreationService } from '../services/firestore-data-creation.service';
 
 @Component({
   selector: 'app-status-list',
@@ -8,13 +7,11 @@ import { FirestoreDataCreationService } from '../services/firestore-data-creatio
   styleUrls: ['./status-list.component.css']
 })
 export class StatusListComponent implements OnInit {
-  private title = 'status'
+  title = 'status'
 
-  private gridApi;
-  private gridColumnApi;
-  private columnDefs = [
+  columnDefs = [
         {
-          headerName: 'Personne', field: 'name', sortable: true, filter: true,
+          headerName: 'Profil', field: 'name', sortable: true, filter: true,
           valueGetter: function(params) {
             return params.data.name + " " + params.data.firstname;
           },
@@ -33,32 +30,14 @@ export class StatusListComponent implements OnInit {
         
     ];
   
-  private rowData: any;
+  rowData: any;
 
-  constructor(private http: HttpClient, private service: FirestoreDataCreationService)
+  constructor(private http: HttpClient)
   {   
   }
 
   ngOnInit() {
-      this.rowData = this.getStatus();
-      this.service.importPeople();
+      this.rowData = this.http.get('/assets/status.json');
   }
-
-  getStatus(){
-    return this.http.get('/assets/status.json');
-  }
-
-  autoSizeAll() {
-    var allColumnIds = [];
-    this.gridColumnApi.getAllColumns().forEach(function(column) {
-      allColumnIds.push(column.colId);
-    });
-    this.gridColumnApi.autoSizeColumns(allColumnIds);
-  }
-
-  onGridReady(params) {
-    this.gridApi = params.api;
-    this.gridColumnApi = params.columnApi;
-    this.autoSizeAll();
-  }
+  
 }
